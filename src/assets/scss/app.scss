@@ -1,0 +1,13 @@
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap-icons/font/bootstrap-icons.css';
+
+// Primereact
+@import '~primereact/resources/themes/saga-blue/theme.css';
+@import '~primereact/resources/primereact.min.css';
+@import '~primeicons/primeicons.css';
+@import '~primeflex/primeflex.css';
+
+// Files
+@import '_layout.scss';
+@import '_header.scss';

@@ -1,0 +1,17 @@
+body, #root {
+    background-color: rgb(75, 75, 75);
+    color: white;
+}
+
+.navbar-brand {
+    color: whitesmoke;
+}
+
+.navbar-brand:hover {
+    color: darkblue;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+}
