@@ -44,13 +44,16 @@ function Fahrkosten () {
     }
 
     function endTripTime(){
-        setEndtime(time)
         setEndtime2(new Date())
+        setDauerInSec((Math.abs(endTime2-startTime2)/(1000)));
         setDauerInMin((Math.abs(endTime2-startTime2)/(1000 * 60)));
-        setDauerInSec((Math.abs(endTime2-startTime2)/(1000 )));
+        setEndtime(time)
         setEndButtonState(true)
         setStartTripState(false)
         console.log(dauerInMin)
+        console.log(dauerInSec)
+        console.log(startTime2)
+        console.log(endTime2)
     }
 
     function startNewTrip(){
@@ -88,38 +91,38 @@ function Fahrkosten () {
       
         <div className="formbody">
             
-                <div class="Scooter1">
+                <div className="Scooter1">
                     <input onClick={changePriceTo1} type="radio" id="scooter1" value="style1"  name="scootertype" disabled={singleButtonState} />
                     <label id="scooter1" htmlFor="scooter1">scooter1</label>
                 </div>
-                <div class="Scooter2">
+                <div className="Scooter2">
                     <input onClick={changePriceTo2} type="radio" id="scooter2" value="style2" name="scootertype" disabled={singleButtonState} />
                     <label htmlFor="scooter2">scooter2</label>
                 </div>
-                <div class="Scooter3">
+                <div className="Scooter3">
                     <input onClick={changePriceTo3} type="radio" id="scooter3" value="style3" name="scootertype" disabled={singleButtonState} />
                     <label htmlFor="scooter3">scooter3</label>
                 </div>
             
-                <div class="clr"></div>
+                <div className="clr"></div>
                 
-                <div class="onebutton">
+                <div className="onebutton">
                     <Button label="Start Trip" icon="pi pi-check" className="p-button-raised p-button-rounded" onClick={startTripTime} disabled={startButtonState}/>
                 </div>
-                <div class="onebutton">
+                <div className="onebutton">
                     <Button label ="End trip" className="p-button-raised p-button-rounded p-button-success" onClick={endTripTime} disabled={endButtonState} />
                     </div>
-                <div class="onebutton">
+                <div className="onebutton">
                     <Button label ="Add 5 Min" className="p-button-raised p-button-rounded" onClick={addMin}></Button>
                 </div>
-                <div class="onebutton">
+                <div className="onebutton">
                     <Button label ="Start New Trip" className="p-button-raised p-button-rounded p-button-success" onClick={startNewTrip} disabled={startTripState}></Button>
                 </div>
                 
                 
-                <div class="clr"></div>
+                <div className="clr"></div>
 
-                <div class="information">               
+                <div className="information">               
                 <h1>Fahrkosten: {preis}€ </h1>
 
                    {/* <p1>Current time{time}</p1> */}
@@ -129,7 +132,7 @@ function Fahrkosten () {
                     <p id='p2'>End time: {endTime}</p>
                 
 
-                    <p id='p3'>Trip Time: {dauerInMin.toFixed(0)}:{dauerInSec.toFixed(0)} </p>
+                    <p id='p3'>Trip Time: {dauerInMin.toFixed(0)}:{dauerInSec.toFixed(1)} </p>
                 
                 
                     <p id='p4'>Cost per Minute: {cost} €</p>

@@ -3,7 +3,7 @@ import { Header } from './components/Header';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import { Calc } from './components/Calc';
 import { Home } from './components/Home';
-import  Fahrkosten  from './components/Fahrkosten';
+import Fahrkosten  from './components/Fahrkosten';
 import './App.css';
 
 const App = () => {
