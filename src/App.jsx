@@ -5,6 +5,7 @@ import { Calc } from './components/Calc';
 import { Home } from './components/Home';
 import Fahrkosten  from './components/Fahrkosten';
 import './App.css';
+import { FahrkostenCalculator } from './components/FahrkostenCalculator';
 
 const App = () => {
     return(
@@ -15,6 +16,7 @@ const App = () => {
                     <Route exact path="/" component={Home} />
                     <Route exact path="/calc" component={Calc} />
                     <Route exact path="/Fahrkosten" component={Fahrkosten} />
+                    <Route exact path="/fahrkosten_calc" component={FahrkostenCalculator} />
                 </Switch>
             </HashRouter>
         </div>
