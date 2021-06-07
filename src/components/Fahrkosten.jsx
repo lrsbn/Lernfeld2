@@ -1,6 +1,5 @@
-import React, { useEffect, useState, useRef} from 'react';
+import React, { useEffect, useState} from 'react';
 import { Button } from 'primereact/button';
-import { Container } from 'react-bootstrap';
 
 
 
@@ -10,7 +9,7 @@ function Fahrkosten () {
     const[endTime, setEndtime] = useState();
     const[dauerInMin, setDauerInMin] = useState(0);
     const[dauerInSec, setDauerInSec] = useState(0);
-    const [cost, setCost] = useState(0);
+    const[cost, setCost] = useState(0);
     const[time ,setTime] = useState(() =>new Date().toLocaleTimeString() );
     const[startTime2, setStarttime2] = useState(new Date());
     const[endTime2, setEndtime2] = useState(new Date());
@@ -26,28 +25,26 @@ function Fahrkosten () {
     useEffect(()=>{
         setInterval(()=>{
              setTime(new Date().toLocaleTimeString())
-
-         },1000)
+         },1)
      })
 
 
     function startTripTime(){
-        setStarttime(time)
         setStarttime2(new Date())
+        setStarttime(new Date().toLocaleTimeString())
         setStartButtonState(true)
         setEndButtonState(false)
         setSingleButtonState(true)
-    }
-    function addMin(){
-        setDauerInMin(dauerInMin+ 5)
-        console.log(dauerInMin)
+        console.log(startTime2)
+        console.log(endTime2)
     }
 
     function endTripTime(){
         setEndtime2(new Date())
+        setEndtime(new Date().toLocaleTimeString())
         setDauerInSec((Math.abs(endTime2-startTime2)/(1000)));
         setDauerInMin((Math.abs(endTime2-startTime2)/(1000 * 60)));
-        setEndtime(time)
+        
         setEndButtonState(true)
         setStartTripState(false)
         console.log(dauerInMin)
@@ -64,6 +61,11 @@ function Fahrkosten () {
         setDauerInMin(0)
         setDauerInSec(0)
         setSingleButtonState(false)
+    }
+
+    function addMin(){
+        setDauerInMin(dauerInMin+ 5)
+        console.log(dauerInMin)
     }
 
     function changePriceTo1(){
@@ -126,15 +128,9 @@ function Fahrkosten () {
                 <h1>Fahrkosten: {preis}€ </h1>
 
                    {/* <p1>Current time{time}</p1> */}
-                   <p id='p1' value='p1'>Start time: {startTime}</p>
-                
-                
+                    <p id='p1' value='p1'>Start time: {startTime}</p>
                     <p id='p2'>End time: {endTime}</p>
-                
-
-                    <p id='p3'>Trip Time: {dauerInMin.toFixed(0)}:{dauerInSec.toFixed(1)} </p>
-                
-                
+                    <p id='p3'>Trip Time: {dauerInMin.toFixed(0)}:{dauerInSec.toFixed(0)} </p>
                     <p id='p4'>Cost per Minute: {cost} €</p>
             </div>       
                    
