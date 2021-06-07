@@ -128,15 +128,9 @@ function Fahrkosten () {
                 <h1>Fahrkosten: {preis}€ </h1>
 
                    {/* <p1>Current time{time}</p1> */}
-                   <p id='p1' value='p1'>Start time: {startTime}</p>
-                
-                
+                    <p id='p1' value='p1'>Start time: {startTime}</p>
                     <p id='p2'>End time: {endTime}</p>
-                
-
                     <p id='p3'>Trip Time: {dauerInMin.toFixed(0)}:{dauerInSec.toFixed(0)} </p>
-                
-                
                     <p id='p4'>Cost per Minute: {cost} €</p>
             </div>       
                    
