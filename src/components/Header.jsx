@@ -8,6 +8,7 @@ export const Header = () => {
             <HashRouter>
             <NavLink className="navbar-brand" to="/">Home</NavLink>
             <NavLink className="navbar-brand" to="/calc">Calculator</NavLink> 
+            <NavLink className="navbar-brand" to="/Fahrkosten">Fahrkosten</NavLink> 
             </HashRouter>
         </div>
     )
