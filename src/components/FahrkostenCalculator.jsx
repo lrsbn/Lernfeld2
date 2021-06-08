@@ -10,6 +10,7 @@ import Scooter3 from '../images/scooter3.jpg'
 export const FahrkostenCalculator = () => {
 
     const [scooterSelected, setScooterSelected] = React.useState("");
+    const [tmpScooterSelected, setTmpScooterSelected] = React.useState("");
 
     const [startTime, setStartTime] = React.useState(null);
     const [endTime, setEndTime] = React.useState(null);
@@ -19,9 +20,6 @@ export const FahrkostenCalculator = () => {
     const [calculatedPrice, setCalculatedPrice] = React.useState(0);
 
     const [showModalScooterSelection, setShowModalScooterSelection] = React.useState(false);
-
-    var currentTimeAsDate = new Date(currentTime);
-    var millis;
 
     // WIP
     React.useEffect(() => {
@@ -39,24 +37,26 @@ export const FahrkostenCalculator = () => {
     const footer = () => {
         return(
             <div>
-                <Button label="Confirm Selection" className="button" onClick={confirmSelection} disabled={scooterSelected===""} />
-                <Button label="Clear Selection" className="button" onClick={clearSelection} disabled={scooterSelected===""} />
+                <Button label="Confirm Selection" className="button" onClick={confirmSelection} disabled={tmpScooterSelected===""} />
+                <Button label="Clear Selection" className="button" onClick={clearSelection} disabled={tmpScooterSelected===""} />
             </div>
         )
     }
 
     const confirmSelection = () => {
         setShowModalScooterSelection(false);
+        setScooterSelected(tmpScooterSelected);
     }
 
     const clearSelection = () => {
         setScooterSelected("");
+        setTmpScooterSelected("");
         setShowModalScooterSelection(false);
     }
 
     const onHide = () => {
         setShowModalScooterSelection(false);
-        setScooterSelected("");
+        setTmpScooterSelected("");
     }
 
     const cardHeader = (imageURL) => {
@@ -74,10 +74,6 @@ export const FahrkostenCalculator = () => {
         if (scooter === "Scooter3") return "3€"
 
         return ""
-    }
-
-    const displayStartTime = () => {
-        return startTime.toString();
     }
 
     const endTrip = () => {
@@ -99,26 +95,57 @@ export const FahrkostenCalculator = () => {
     const startTrip = () => {
         setStartTime(new Date());
         setCurrentTime(0);
-        // start = startTime.now();
+    }
+
+    const calculatePrice = () => {
+        var price;
+        var cost;
+
+        if (scooterSelected === "Scooter1") cost = 1;
+        if (scooterSelected === "Scooter2") cost = 2;
+        if (scooterSelected === "Scooter3") cost = 3;
+
+        if (scooterSelected === "") return <div></div>
+
+        price = totalTime / 1000 / 60 * cost;
+        // setCalculatedPrice(Number.parseFloat(price).toFixed(2));
+
+        return(
+            <div>
+                {`${Number.parseFloat(price).toFixed(2)} €`}
+            </div>
+        )
+    }
+
+    const formatTime = (timeInMillis) => {
+        // var sec_num = parseInt(this, 10); // don't forget the second param
+        var hours   = Math.floor(timeInMillis / 3600);
+        var minutes = Math.floor((timeInMillis - (hours * 3600)) / 60);
+        var seconds = timeInMillis - (hours * 3600) - (minutes * 60);
+
+        if (hours   < 10) {hours   = "0"+hours;}
+        if (minutes < 10) {minutes = "0"+minutes;}
+        if (seconds < 10) {seconds = "0"+seconds;}
+        return hours+':'+minutes+':'+seconds;
     }
 
     return(
         <div className="FahrkostenCalculatorContainer">
             <div>
-                <Button label="Select Scooter" className="button" onClick={() => setShowModalScooterSelection(showModalScooterSelection => !showModalScooterSelection)}/>
-                <Dialog header={header} visible={showModalScooterSelection} style={{width:"60rem"}} footer={footer} onHide={onHide} draggable={false} closable={false}>
+                <Button label="Select Scooter" className="button" onClick={() => { setShowModalScooterSelection(showModalScooterSelection => !showModalScooterSelection); setTmpScooterSelected(scooterSelected)}}/>
+                <Dialog header={header} visible={showModalScooterSelection} style={{width:"60rem"}} footer={footer} onHide={onHide} draggable={false} closable={true}>
                     <div className="ScooterSelection">
                         <Card className="ScooterSelectionCard" title={cardHeader(Scooter1)} footer={ <div className="centerItems">
                             <label className="ScooterSelectionLabel" htmlFor="scooter1Selection">Scooter 1</label>
-                            <RadioButton value="Scooter1" inputId="scooter1Selection" onChange={(e) => setScooterSelected(e.value)} checked={scooterSelected==="Scooter1"} /> </div>}>
+                            <RadioButton value="Scooter1" inputId="scooter1Selection" onChange={(e) => setTmpScooterSelected(e.value)} checked={tmpScooterSelected==="Scooter1"} /> </div>}>
                         </Card>
                         <Card className="ScooterSelectionCard" title={cardHeader(Scooter2)} footer={ <div className="centerItems">
                             <label className="ScooterSelectionLabel" htmlFor="scooter2Selection">Scooter 2</label>
-                            <RadioButton value="Scooter2" inputId="scooter2Selection" onChange={(e) => setScooterSelected(e.value)} checked={scooterSelected==="Scooter2"} /> </div>}>
+                            <RadioButton value="Scooter2" inputId="scooter2Selection" onChange={(e) => setTmpScooterSelected(e.value)} checked={tmpScooterSelected==="Scooter2"} /> </div>}>
                         </Card>
                         <Card className="ScooterSelectionCard" title={cardHeader(Scooter3)} footer={ <div className="centerItems">
                             <label className="ScooterSelectionLabel" htmlFor="scooter3Selection">Scooter 3</label>
-                            <RadioButton value="Scooter3" inputId="scooter3Selection" onChange={(e) => setScooterSelected(e.value)} checked={scooterSelected==="Scooter3"} /> </div>}>
+                            <RadioButton value="Scooter3" inputId="scooter3Selection" onChange={(e) => setTmpScooterSelected(e.value)} checked={tmpScooterSelected==="Scooter3"} /> </div>}>
                         </Card>
                     </div>
                 </Dialog>
@@ -157,10 +184,7 @@ export const FahrkostenCalculator = () => {
                     </div>
                     <div>
                         {currentTime !== null && endTime === null && 
-                        // `${(currentTimeAsDate.getHours() - 1) === 0 ? `${currentTimeAsDate.getHours() - 1}:` : ""}
-                        // ${currentTimeAsDate.getMinutes() === 0 ? `${currentTimeAsDate.getMinutes()}:` : ""}
-                        // ${currentTimeAsDate.getSeconds()}`}
-                        Math.floor(currentTime / 1000) }
+                        formatTime(Math.floor(currentTime / 1000))}
                     </div>
                 </div>
                 <div className="contentAsTable">
@@ -176,9 +200,16 @@ export const FahrkostenCalculator = () => {
                         Total Time:
                     </div>
                     <div>
-                        {totalTime !== null && Math.floor(totalTime / 1000)}
+                        {totalTime !== null && formatTime(Math.floor(totalTime / 1000))}
                     </div>
-
+                </div>
+                <div className="contentAsTable">
+                    <div>
+                        Price:
+                    </div>
+                    <div>
+                        {totalTime !== null && calculatePrice()}
+                    </div>
                 </div>
             </div>
             <div className="TripControl">
