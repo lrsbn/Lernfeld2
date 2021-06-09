@@ -10,7 +10,6 @@ function Fahrkosten () {
     const[dauerInMin, setDauerInMin] = useState(0);
     const[dauerInSec, setDauerInSec] = useState(0);
     const[cost, setCost] = useState(0);
-    const[time ,setTime] = useState(() =>new Date().toLocaleTimeString() );
     const[startTime2, setStarttime2] = useState(new Date());
     const[endTime2, setEndtime2] = useState(new Date());
     const[startButtonState, setStartButtonState] = useState(true);
@@ -19,15 +18,11 @@ function Fahrkosten () {
     const[initialCost, setInitialCost] = useState(0);
     const[singleButtonState, setSingleButtonState] = useState(false);
     var preis = Math.ceil(dauerInMin*cost+ initialCost).toFixed(2);
+    const currentTrip = [startTime, endTime, preis];
+    const localStorageContent = [localStorage.getItem('Trips')];
+    var allTrips = [];
     
     
-
-    useEffect(()=>{
-        setInterval(()=>{
-             setTime(new Date().toLocaleTimeString())
-         },1)
-     })
-
 
     function startTripTime(){
         setStarttime2(new Date())
@@ -35,22 +30,19 @@ function Fahrkosten () {
         setStartButtonState(true)
         setEndButtonState(false)
         setSingleButtonState(true)
-        console.log(startTime2)
-        console.log(endTime2)
+       
     }
 
     function endTripTime(){
         setEndtime2(new Date())
         setEndtime(new Date().toLocaleTimeString())
-        setDauerInSec((Math.abs(endTime2-startTime2)/(1000)));
-        setDauerInMin((Math.abs(endTime2-startTime2)/(1000 * 60)));
+        setDauerInSec((Math.abs(endTime2-startTime2)/(1000))%60);
+        setDauerInMin((Math.abs(endTime2-startTime2)/(1000 * 60))%60);
         
         setEndButtonState(true)
         setStartTripState(false)
-        console.log(dauerInMin)
-        console.log(dauerInSec)
-        console.log(startTime2)
-        console.log(endTime2)
+        
+
     }
 
     function startNewTrip(){
@@ -61,11 +53,19 @@ function Fahrkosten () {
         setDauerInMin(0)
         setDauerInSec(0)
         setSingleButtonState(false)
+        
     }
 
     function addMin(){
         setDauerInMin(dauerInMin+ 5)
         console.log(dauerInMin)
+    }
+
+    function saveTrip(){
+        allTrips.push(currentTrip)
+        
+        localStorage.setItem('Trips',(allTrips))
+        console.log(allTrips)
     }
 
     function changePriceTo1(){
@@ -86,8 +86,10 @@ function Fahrkosten () {
         setInitialCost(3)
     }
 
-  
-   
+    function formatTime(time){
+        return time < 10 ? `0${time}` : time;
+    }
+    
 
     return (
       
@@ -109,7 +111,7 @@ function Fahrkosten () {
                 <div className="clr"></div>
                 
                 <div className="onebutton">
-                    <Button label="Start Trip" icon="pi pi-check" className="p-button-raised p-button-rounded" onClick={startTripTime} disabled={startButtonState}/>
+                    <Button label="Start Trip" className="p-button-raised p-button-rounded" onClick={startTripTime} disabled={startButtonState}/>
                 </div>
                 <div className="onebutton">
                     <Button label ="End trip" className="p-button-raised p-button-rounded p-button-success" onClick={endTripTime} disabled={endButtonState} />
@@ -118,7 +120,10 @@ function Fahrkosten () {
                     <Button label ="Add 5 Min" className="p-button-raised p-button-rounded" onClick={addMin}></Button>
                 </div>
                 <div className="onebutton">
-                    <Button label ="Start New Trip" className="p-button-raised p-button-rounded p-button-success" onClick={startNewTrip} disabled={startTripState}></Button>
+                    <Button label ="New Trip" className="p-button-raised p-button-rounded p-button-success" onClick={startNewTrip} disabled={startTripState}></Button>
+                </div>
+                <div className="onebutton">
+                    <Button label ="Save Trip" className="p-button-raised p-button-rounded" onClick={saveTrip} ></Button>
                 </div>
                 
                 
@@ -130,7 +135,7 @@ function Fahrkosten () {
                    {/* <p1>Current time{time}</p1> */}
                     <p id='p1' value='p1'>Start time: {startTime}</p>
                     <p id='p2'>End time: {endTime}</p>
-                    <p id='p3'>Trip Time: {dauerInMin.toFixed(0)}:{dauerInSec.toFixed(0)} </p>
+                    <p id='p3'>Trip Time: {formatTime(dauerInMin.toFixed(0))}:{formatTime(dauerInSec.toFixed(0))} </p>
                     <p id='p4'>Cost per Minute: {cost} €</p>
             </div>       
                    
