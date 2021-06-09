@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/Lernfeld2/static/css/main.332fc992.chunk.css",
+    "main.js": "/Lernfeld2/static/js/main.694c86a9.chunk.js",
+    "main.js.map": "/Lernfeld2/static/js/main.694c86a9.chunk.js.map",
+    "runtime-main.js": "/Lernfeld2/static/js/runtime-main.d251ca13.js",
+    "runtime-main.js.map": "/Lernfeld2/static/js/runtime-main.d251ca13.js.map",
+    "static/css/2.a7aac2fb.chunk.css": "/Lernfeld2/static/css/2.a7aac2fb.chunk.css",
+    "static/js/2.625578b4.chunk.js": "/Lernfeld2/static/js/2.625578b4.chunk.js",
+    "static/js/2.625578b4.chunk.js.map": "/Lernfeld2/static/js/2.625578b4.chunk.js.map",
+    "index.html": "/Lernfeld2/index.html",
+    "static/css/2.a7aac2fb.chunk.css.map": "/Lernfeld2/static/css/2.a7aac2fb.chunk.css.map",
+    "static/css/main.332fc992.chunk.css.map": "/Lernfeld2/static/css/main.332fc992.chunk.css.map",
+    "static/js/2.625578b4.chunk.js.LICENSE.txt": "/Lernfeld2/static/js/2.625578b4.chunk.js.LICENSE.txt",
+    "static/media/app.scss": "/Lernfeld2/static/media/scooter3.17d978a9.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d251ca13.js",
+    "static/css/2.a7aac2fb.chunk.css",
+    "static/js/2.625578b4.chunk.js",
+    "static/css/main.332fc992.chunk.css",
+    "static/js/main.694c86a9.chunk.js"
+  ]
+}
