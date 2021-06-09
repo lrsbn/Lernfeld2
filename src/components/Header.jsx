@@ -1,6 +1,5 @@
 import React from 'react';
 import { HashRouter, NavLink } from 'react-router-dom';
-import { Calc } from './Calc.jsx'
 
 export const Header = () => {
     return(

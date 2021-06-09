@@ -12,16 +12,17 @@ export const FahrkostenCalculator = () => {
     const [scooterSelected, setScooterSelected] = React.useState("");
     const [tmpScooterSelected, setTmpScooterSelected] = React.useState("");
 
+    const SCOOTER_1_COST_PER_MINUTE = 0.10;
+    const SCOOTER_2_COST_PER_MINUTE = 0.20;
+    const SCOOTER_3_COST_PER_MINUTE = 0.30;
+
     const [startTime, setStartTime] = React.useState(null);
     const [endTime, setEndTime] = React.useState(null);
     const [currentTime, setCurrentTime] = React.useState(0);
     const [totalTime, setTotalTime] = React.useState(null);
 
-    const [calculatedPrice, setCalculatedPrice] = React.useState(0);
-
     const [showModalScooterSelection, setShowModalScooterSelection] = React.useState(false);
 
-    // WIP
     React.useEffect(() => {
         if (startTime !== null && endTime === null) {
             setTimeout(() => setCurrentTime(new Date() - startTime), 1000);
@@ -69,9 +70,9 @@ export const FahrkostenCalculator = () => {
     
     const displayCostPerMinute = (scooter) => {
 
-        if (scooter === "Scooter1") return "1€"
-        if (scooter === "Scooter2") return "2€"
-        if (scooter === "Scooter3") return "3€"
+        if (scooter === "Scooter1") return `${SCOOTER_1_COST_PER_MINUTE.toFixed(2)} €`
+        if (scooter === "Scooter2") return `${SCOOTER_2_COST_PER_MINUTE.toFixed(2)} €`
+        if (scooter === "Scooter3") return `${SCOOTER_3_COST_PER_MINUTE.toFixed(2)} €`
 
         return ""
     }
@@ -79,10 +80,6 @@ export const FahrkostenCalculator = () => {
     const endTrip = () => {
         setEndTime(new Date());
         setTotalTime(currentTime);
-    }
-
-    const add5Minutes = () => {
-
     }
 
     const newTrip = () => {
@@ -101,24 +98,22 @@ export const FahrkostenCalculator = () => {
         var price;
         var cost;
 
-        if (scooterSelected === "Scooter1") cost = 1;
-        if (scooterSelected === "Scooter2") cost = 2;
-        if (scooterSelected === "Scooter3") cost = 3;
+        if (scooterSelected === "Scooter1") cost = SCOOTER_1_COST_PER_MINUTE;
+        if (scooterSelected === "Scooter2") cost = SCOOTER_2_COST_PER_MINUTE;
+        if (scooterSelected === "Scooter3") cost = SCOOTER_3_COST_PER_MINUTE;
 
         if (scooterSelected === "") return <div></div>
 
         price = totalTime / 1000 / 60 * cost;
-        // setCalculatedPrice(Number.parseFloat(price).toFixed(2));
 
         return(
             <div>
-                {`${Number.parseFloat(price).toFixed(2)} €`}
+                {`${Number.parseFloat(price + 1).toFixed(2)} €`}
             </div>
         )
     }
 
     const formatTime = (timeInMillis) => {
-        // var sec_num = parseInt(this, 10); // don't forget the second param
         var hours   = Math.floor(timeInMillis / 3600);
         var minutes = Math.floor((timeInMillis - (hours * 3600)) / 60);
         var seconds = timeInMillis - (hours * 3600) - (minutes * 60);
@@ -132,8 +127,8 @@ export const FahrkostenCalculator = () => {
     return(
         <div className="FahrkostenCalculatorContainer">
             <div>
-                <Button label="Select Scooter" className="button" onClick={() => { setShowModalScooterSelection(showModalScooterSelection => !showModalScooterSelection); setTmpScooterSelected(scooterSelected)}}/>
-                <Dialog header={header} visible={showModalScooterSelection} style={{width:"60rem"}} footer={footer} onHide={onHide} draggable={false} closable={true}>
+                <Button label="Select Scooter" className="button" onClick={() => { setShowModalScooterSelection(showModalScooterSelection => !showModalScooterSelection); setTmpScooterSelected(scooterSelected)}} disabled={startTime !== null}/>
+                <Dialog header={header} visible={showModalScooterSelection} style={{width:"60rem"}} footer={footer} onHide={onHide} draggable={false} closable dismissableMask>
                     <div className="ScooterSelection">
                         <Card className="ScooterSelectionCard" title={cardHeader(Scooter1)} footer={ <div className="centerItems">
                             <label className="ScooterSelectionLabel" htmlFor="scooter1Selection">Scooter 1</label>
@@ -177,7 +172,6 @@ export const FahrkostenCalculator = () => {
                         {startTime !== null ? `${startTime.toLocaleDateString('en-US',{weekday: 'long'})}, ${startTime.toTimeString()}` : ""}
                     </div>
                 </div>
-                {/* WIP */}
                 <div className="contentAsTable">
                     <div>
                         Current Trip Length:
@@ -208,7 +202,7 @@ export const FahrkostenCalculator = () => {
                         Price:
                     </div>
                     <div>
-                        {totalTime !== null && calculatePrice()}
+                        <b style={{color: "rgb(15, 233, 248)"}}>{totalTime !== null && calculatePrice()}</b>
                     </div>
                 </div>
             </div>
@@ -217,7 +211,6 @@ export const FahrkostenCalculator = () => {
                 <div className="TripButtons">
                     <Button className="p-button-success" label="Start Trip" onClick={startTrip} disabled={startTime !== null || scooterSelected === ""}/>
                     <Button className="p-button-danger" label="End Trip" onClick={endTrip} disabled={startTime === null} />
-                    <Button className="button" label="Add 5 Minutes" onClick={add5Minutes} disabled={startTime === null} /> 
                 </div> :
                 <div>
                     <Button className="p-button-success" label="New Trip" onClick={newTrip} />
