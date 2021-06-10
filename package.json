@@ -1,6 +1,6 @@
 {
-  "name": "fare-calc_web",
   "homepage": "https://lrsbn.github.io/Lernfeld2/",
+  "name": "fare-calc_web",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

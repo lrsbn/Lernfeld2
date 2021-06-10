@@ -2,11 +2,44 @@
     box-sizing: border-box;
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: baseline;
     padding: 1em;
     margin-bottom: 2em;
     background-color: rgb(15, 233, 248);
     color: rgb(0, 0, 0);
     font-weight: bold;
+}
+
+.header > .header-wrapper {
+    margin-inline: auto;
+    width: min(90%, 70rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.header > .header-wrapper > .header-main-nav {
+    padding-left: 1em;
+}
+
+// .header-wrapper {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: baseline;
+// }
+
+.navbar-link {
+    text-decoration: none;
+    color: white;
+    font-size: large;
+}
+
+.navbar-brand {
+    color: whitesmoke;
+    font-size: x-large;
+}
+
+.navbar-brand:hover, .navbar-link:hover {
+    color: #0d6efd;
 }
