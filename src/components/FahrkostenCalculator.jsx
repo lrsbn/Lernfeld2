@@ -4,7 +4,7 @@ import { Dialog } from "primereact/dialog";
 import { RadioButton } from 'primereact/radiobutton';
 import { Card } from 'primereact/card';
 import Scooter1 from '../images/scooter1.jpg'
-import Scooter2 from '../images/scooter2.jpg'
+import Scooter2 from '../images/shopping.png'
 import Scooter3 from '../images/scooter3.jpg'
 
 export const FahrkostenCalculator = () => {
@@ -31,7 +31,7 @@ export const FahrkostenCalculator = () => {
     
     const header = () => {
         return(
-            <div>Select A Scooter</div>
+            <div className="ScooterSelectionHeader">Select A Scooter</div>
         )
     }
 
@@ -202,7 +202,7 @@ export const FahrkostenCalculator = () => {
                         Price:
                     </div>
                     <div>
-                        <b style={{color: "rgb(15, 233, 248)"}}>{totalTime !== null && calculatePrice()}</b>
+                        <b className="color-lightred">{totalTime !== null && calculatePrice()}</b>
                     </div>
                 </div>
             </div>

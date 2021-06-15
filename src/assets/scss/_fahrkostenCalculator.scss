@@ -10,12 +10,54 @@
     align-items: center;
 }
 
+.p-dialog .p-dialog-header, .p-dialog .p-dialog-footer, .p-dialog .p-dialog-content {
+    background-color: #EAE7DC;
+}
+
+.p-card .p-card-body {
+    background-color: #D8C3A5;
+}
+
+.p-radiobutton .p-radiobutton-box {
+    border-color: #495057;
+    background-color: #EAE7DC;
+}
+
+.p-radiobutton .p-radiobutton-box:not(.p-disabled):not(.p-highlight):hover {
+    border-color: #E98074;
+}
+
+.p-radiobutton .p-radiobutton-box.p-highlight {
+    border-color: #E85A4F;
+    background-color: #E85A4F;
+}
+
+.p-radiobutton .p-radiobutton-box.p-highlight:not(.p-disabled):hover {
+    border-color: #E85A4F !important;
+    background-color: #E85A4F !important;
+    color: #EAE7DC;
+}
+
+.p-radiobutton .p-radiobutton-box:not(.p-disabled).p-focus {
+    box-shadow: 0 0 0 0.2rem #E98074;
+    border-color: #E98074;
+}
+
+.p-dialog .p-dialog-header .p-dialog-header-icon:enabled:hover {
+    background-color: #D8C3A5;
+}
+
+.p-dialog .p-dialog-header .p-dialog-header-icon:focus {
+    box-shadow: 0 0 0 0.2rem #E98074;
+}
+
 .ScooterSelectionCard {
     margin-top: .5rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .ScooterSelectionLabel {
+    font-weight: bold;
     margin-right: 1rem;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -27,9 +69,10 @@
 
 .TripManagement {
     margin-top: 2rem;
-    border-left: 5px solid white;
     padding: 0.01em 16px;
-    border-radius: 5px;
+    // border-left: 5px solid white;
+    // border-radius: 5px;
+    // border-color: rgb(15, 233, 248);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -43,7 +86,7 @@
 
 .TripControl {
     margin-top: 1rem;
-    border-top: 5px solid white;
+    border-top: 5px solid #495057;
     padding: 1em 16px 0.01em 16px;
     border-radius: 5px 5px 5px 5px;
 }
@@ -56,12 +99,21 @@
 .centerItems {
     display: flex;
     justify-content: center;
+    background-color: #D8C3A5;
+    border-radius: 5px;
 }
 
 .button {
-    color: white;
-    border-color: rgb(15, 233, 248);
-    background-color: rgb(15, 233, 248);  
+    color: #495057;
+    border-color: #D8C3A5;
+    background-color: #D8C3A5;  
+    font-weight: bold;
+}
+
+.p-button:not(a):not(.p-disabled):hover {
+    color: #495057;
+    border-color: #E98074;
+    background-color: #E98074; 
 }
 
 .button-success {

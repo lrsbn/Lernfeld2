@@ -1,9 +1,56 @@
 body, #root {
-    background-color: rgb(75, 75, 75);
-    color: white;
+    // background-color: rgb(75, 75, 75);
+    background-color: #EAE7DC;
+    color: #495057;
+    font-weight: bold;
 }
 
 .centered {
     display: flex;
     justify-content: center;
+}
+
+.color-orange {
+    // color: #cc9900;
+}
+
+*:focus {
+    box-shadow: 0 0 0 0.2rem #E98074 !important;
+}
+
+.color-lightred {
+    color: #E85A4F;
+}
+
+.default-container {
+    margin-inline: auto;
+    width: min(90%, 70rem);
+}
+
+.default-container-wrapper {
+    display: flex;
+    // justify-content: center;
+}
+
+.default-container-wrapper > div {
+    margin: 1rem
+}
+
+.cover {
+    height: 600px;
+    width: 400px;
+}
+
+.cover img {
+    object-fit: cover;
+    object-position: right;
+    border-radius: 50px;
+}
+
+@media screen and (max-width: 60rem) {
+    .default-container-wrapper {
+        float: none;
+        display: block;
+        text-align: left;
+    }
 }
