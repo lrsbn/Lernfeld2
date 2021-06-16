@@ -1,16 +1,16 @@
 import React from 'react';
-import ScooTecLogo from '../images/ScooTec3.png'
+import ScooTeqLogo from '../images/ScooTec3.png'
 
 export const Contact = () => {
     return(
         <div className="default-container">
             <div className="default-container-wrapper">
                 <div>
-                    <img className="rounded-img" src={ScooTecLogo} alt="ScooTec Logo" />
+                    <img className="rounded-img" src={ScooTeqLogo} alt="ScooTeq Logo" />
                 </div>
                 <div className="ContactBackground">
                     <div className="contact-header-box">Contact</div>
-                    <div>ScooTec</div>
+                    <div>ScooTeq</div>
                     <div>Berufliche Schule ITECH Elbinsel Wilhelmsburg</div>
                     <div>Dratelnstraße 26</div>
                     <div>21109 Hamburg</div>

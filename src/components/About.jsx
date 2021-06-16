@@ -15,13 +15,13 @@ export const About = () => {
                         Über uns
                     </div>
                     <p>
-                    Die ScooTec GmbH ist ein in Hamburg stationiertes Start-Up Unternehmen, welches sich um die Ausstattung verschiedener Großstädte in Deutschland mit E-Scootern kümmert. 
+                    Die ScooTeq GmbH ist ein in Hamburg stationiertes Start-Up Unternehmen, welches sich um die Ausstattung verschiedener Großstädte in Deutschland mit E-Scootern kümmert. 
                     Dabei legen wir besonderen Wert auf hohe Qualität und faire Preise, sowie Umweltfreundlichkeit und Nachhaltigkeit.<br/>
                     Unsere E-Scooter werden dabei von zertifizierten Partner hergestellt und gewartet, um Ihnen unsere Versprechen, 
                     sowie ein gutes Gewissen tatsächlich einen Unterschied zu machen, zu gewährleisten.<br/>
                     Unsere Firmenzentrale befindet sich direkt in der Hafencity in Hamburg.<br/><br/>
                     Bei Fragen kommen Sie doch gerne direkt zu uns in der Hafencity mit einem unser E-Scooter, oder rufen sie unter 040 428 794 -0 an.<br/><br/>
-                    Euer ScooTec-Team.<br/><br/>
+                    Euer ScooTeq-Team.<br/><br/>
                     </p>
                     <div className="contact-header-box">
                         Wie haben wir die Anwendung getestet?
