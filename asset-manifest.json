@@ -1,27 +1,29 @@
 {
   "files": {
-    "main.css": "/Lernfeld2/static/css/main.d469957d.chunk.css",
-    "main.js": "/Lernfeld2/static/js/main.e1a9a72a.chunk.js",
-    "main.js.map": "/Lernfeld2/static/js/main.e1a9a72a.chunk.js.map",
+    "main.css": "/Lernfeld2/static/css/main.a71a008d.chunk.css",
+    "main.js": "/Lernfeld2/static/js/main.8fbfd190.chunk.js",
+    "main.js.map": "/Lernfeld2/static/js/main.8fbfd190.chunk.js.map",
     "runtime-main.js": "/Lernfeld2/static/js/runtime-main.d251ca13.js",
     "runtime-main.js.map": "/Lernfeld2/static/js/runtime-main.d251ca13.js.map",
     "static/css/2.a7aac2fb.chunk.css": "/Lernfeld2/static/css/2.a7aac2fb.chunk.css",
-    "static/js/2.1af28857.chunk.js": "/Lernfeld2/static/js/2.1af28857.chunk.js",
-    "static/js/2.1af28857.chunk.js.map": "/Lernfeld2/static/js/2.1af28857.chunk.js.map",
+    "static/js/2.035d8b68.chunk.js": "/Lernfeld2/static/js/2.035d8b68.chunk.js",
+    "static/js/2.035d8b68.chunk.js.map": "/Lernfeld2/static/js/2.035d8b68.chunk.js.map",
     "index.html": "/Lernfeld2/index.html",
     "static/css/2.a7aac2fb.chunk.css.map": "/Lernfeld2/static/css/2.a7aac2fb.chunk.css.map",
-    "static/css/main.d469957d.chunk.css.map": "/Lernfeld2/static/css/main.d469957d.chunk.css.map",
-    "static/js/2.1af28857.chunk.js.LICENSE.txt": "/Lernfeld2/static/js/2.1af28857.chunk.js.LICENSE.txt",
-    "static/media/app.scss": "/Lernfeld2/static/media/scooter3.17d978a9.jpg",
-    "static/media/fb-natur.23b6d078.jpg": "/Lernfeld2/static/media/fb-natur.23b6d078.jpg",
-    "static/media/shopping.dd84ed9b.png": "/Lernfeld2/static/media/shopping.dd84ed9b.png",
+    "static/css/main.a71a008d.chunk.css.map": "/Lernfeld2/static/css/main.a71a008d.chunk.css.map",
+    "static/js/2.035d8b68.chunk.js.LICENSE.txt": "/Lernfeld2/static/js/2.035d8b68.chunk.js.LICENSE.txt",
+    "static/media/Okai-electric-scooter-es400b-menu_1600x.e990cb34.png": "/Lernfeld2/static/media/Okai-electric-scooter-es400b-menu_1600x.e990cb34.png",
+    "static/media/ScooTec3.fb198245.png": "/Lernfeld2/static/media/ScooTec3.fb198245.png",
+    "static/media/app.scss": "/Lernfeld2/static/media/primeicons.e61f3495.woff",
+    "static/media/scooter1.fefecc70.jpg": "/Lernfeld2/static/media/scooter1.fefecc70.jpg",
+    "static/media/shopping.9fa23e8a.png": "/Lernfeld2/static/media/shopping.9fa23e8a.png",
     "static/media/sunset-boat-lacquer-sky-offer-reflection.aa6d5615.jpg": "/Lernfeld2/static/media/sunset-boat-lacquer-sky-offer-reflection.aa6d5615.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.d251ca13.js",
     "static/css/2.a7aac2fb.chunk.css",
-    "static/js/2.1af28857.chunk.js",
-    "static/css/main.d469957d.chunk.css",
-    "static/js/main.e1a9a72a.chunk.js"
+    "static/js/2.035d8b68.chunk.js",
+    "static/css/main.a71a008d.chunk.css",
+    "static/js/main.8fbfd190.chunk.js"
   ]
 }
