@@ -5,7 +5,7 @@ import { RadioButton } from 'primereact/radiobutton';
 import { Card } from 'primereact/card';
 import Scooter1 from '../images/scooter1.jpg'
 import Scooter2 from '../images/shopping.png'
-import Scooter3 from '../images/scooter3.jpg'
+import Scooter3 from '../images/Okai-electric-scooter-es400b-menu_1600x.png'
 
 export const FahrkostenCalculator = () => {
 

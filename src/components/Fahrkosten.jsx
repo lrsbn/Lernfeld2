@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from 'react';
+import React, { useState} from 'react';
 import { Button } from 'primereact/button';
 
 
@@ -19,7 +19,7 @@ function Fahrkosten () {
     const[singleButtonState, setSingleButtonState] = useState(false);
     var preis = Math.ceil(dauerInMin*cost+ initialCost).toFixed(2);
     const currentTrip = [startTime, endTime, preis];
-    const localStorageContent = [localStorage.getItem('Trips')];
+    // const localStorageContent = [localStorage.getItem('Trips')];
     var allTrips = [];
     
     
