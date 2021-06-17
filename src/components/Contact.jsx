@@ -21,7 +21,6 @@ export const Contact = () => {
             </div>
             <div className="ContactBackground">
                     <div className="contact-header-box">Diese Website wurde erstellt von</div><br/>
-                    {/* <div style={{display: "flex", justifyContent:"space-around"}}><div>Shiva</div><div>Jonah</div><div>Lasse</div><div>Lars</div></div> */}
                     <div>Shiva</div>
                     <div>Jonah</div>
                     <div>Lasse</div>

@@ -9,6 +9,7 @@ import Scooter3 from '../images/Okai-electric-scooter-es400b-menu_1600x.png'
 
 export const FahrkostenCalculator = () => {
 
+    // variablen (REACT) -> "Getter" und Setter
     const [scooterSelected, setScooterSelected] = React.useState("");
     const [tmpScooterSelected, setTmpScooterSelected] = React.useState("");
 
@@ -23,18 +24,21 @@ export const FahrkostenCalculator = () => {
 
     const [showModalScooterSelection, setShowModalScooterSelection] = React.useState(false);
 
+    // Updated die Benutzungszeit jede Sekunde
     React.useEffect(() => {
         if (startTime !== null && endTime === null) {
             setTimeout(() => setCurrentTime(new Date() - startTime), 1000);
         }
     })
     
+    // Header der Selektion
     const header = () => {
         return(
             <div className="ScooterSelectionHeader">Select A Scooter</div>
         )
     }
 
+    // Footer der Selektion
     const footer = () => {
         return(
             <div>
@@ -44,22 +48,26 @@ export const FahrkostenCalculator = () => {
         )
     }
 
+    // Bestätigt die Selektion
     const confirmSelection = () => {
         setShowModalScooterSelection(false);
         setScooterSelected(tmpScooterSelected);
     }
 
+    // Cleared die Selektion (bestätigt und unbestätigt)
     const clearSelection = () => {
         setScooterSelected("");
         setTmpScooterSelected("");
         setShowModalScooterSelection(false);
     }
 
+    // Funktion für das Verhalten wenn auf das (X) oder in den Hintergrund im Selektionsmenü geklickt wird
     const onHide = () => {
         setShowModalScooterSelection(false);
         setTmpScooterSelected("");
     }
 
+    // Header für die Einträge im Selektionsmenü
     const cardHeader = (imageURL) => {
         return(
             <div>
@@ -68,6 +76,7 @@ export const FahrkostenCalculator = () => {
         )
     }
     
+    // Erstellung eines Strings für die Kosten pro Minute für jeden Scooter
     const displayCostPerMinute = (scooter) => {
 
         if (scooter === "Scooter1") return `${SCOOTER_1_COST_PER_MINUTE.toFixed(2)} €`
@@ -77,11 +86,13 @@ export const FahrkostenCalculator = () => {
         return ""
     }
 
+    // Beendet die Fahrt
     const endTrip = () => {
         setEndTime(new Date());
         setTotalTime(currentTime);
     }
 
+    // Erstellt einen neuen Trip
     const newTrip = () => {
         setTotalTime(null);
         setStartTime(null);
@@ -89,11 +100,13 @@ export const FahrkostenCalculator = () => {
         setCurrentTime(null);
     }
 
+    // Startet die Fahrt
     const startTrip = () => {
         setStartTime(new Date());
         setCurrentTime(0);
     }
 
+    // Kalkuliert den Preis nach dem ausgewählten Scooter und der Gesamtzeit
     const calculatePrice = () => {
         var price;
         var cost;
@@ -108,22 +121,29 @@ export const FahrkostenCalculator = () => {
 
         return(
             <div>
+                {/* Preis wird kalkuliert und auf die letzten beiden Nachkommastellen berechnet */}
                 {`${Number.parseFloat(price + 1).toFixed(2)} €`}
             </div>
         )
     }
 
+    // Formatiert die Zeit in ein leserlichen String
     const formatTime = (timeInMillis) => {
+        // Zeit wird erst auf eine Stunde berechnet und anschließend gerundet
         var hours   = Math.floor(timeInMillis / 3600);
+        // s.o (Minute) + Abzug der Stunden
         var minutes = Math.floor((timeInMillis - (hours * 3600)) / 60);
+        // s.o (Sekunde) + Abzug der Stunden und Minuten
         var seconds = timeInMillis - (hours * 3600) - (minutes * 60);
 
+        // Falls die Stunden/Minuten/Sekunden < 10 sind, wird eine "0" vorne drangehängt
         if (hours   < 10) {hours   = "0"+hours;}
         if (minutes < 10) {minutes = "0"+minutes;}
         if (seconds < 10) {seconds = "0"+seconds;}
         return hours+':'+minutes+':'+seconds;
     }
 
+    // Rückgabe der Funktion (Funktionale Programmierung (standardmäßig "Klasse" in Objektorientierten Programmiersprachen))
     return(
         <div className="FahrkostenCalculatorContainer">
             <div>
