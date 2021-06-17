@@ -49,6 +49,24 @@ export const SoftwareTesting = () => {
                         <li>
                             Wird die richtige Benutzungszeit angezeigt?
                         </li>
+                        <li>
+                            Funktioniert der End-Knopf (End Trip)? (falls Trip gestartet ist)
+                        </li>
+                        <li>
+                            Wird die richtige Endzeit angezeigt?
+                        </li>
+                        <li>
+                            Wird die Benutzungszeit angehalten?
+                        </li>
+                        <li>
+                            Wird der richtige Preis genannt (Einstiegsgebühr beachten)?
+                        </li>
+                        <li>
+                            Wird, wenn die Fahrt beendet wurde der "Neue Fahrt"-Knopf angezeigt (New Trip)?
+                        </li>
+                        <li>
+                            Funktioniert dieser?
+                        </li>
                     </ol>
 
                 </div>

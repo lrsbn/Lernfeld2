@@ -42,6 +42,15 @@ body, #root {
     border-radius: 50px;
 }
 
+.cover-left {
+    height: 600px;
+    width: 500px;
+    object-fit: cover;
+    object-position: left;
+    border: 3px solid #495057;
+    border-radius: 50px;
+}
+
 .rounded-img {
     border: 3px solid #495057;
     border-radius: 50px;
@@ -73,4 +82,8 @@ body, #root {
 
 .font-large {
     font-size: large;
+}
+
+.block-style {
+    
 }
