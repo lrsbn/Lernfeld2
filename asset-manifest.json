@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Lernfeld2/static/css/main.44554a27.chunk.css",
-    "main.js": "/Lernfeld2/static/js/main.d549712a.chunk.js",
-    "main.js.map": "/Lernfeld2/static/js/main.d549712a.chunk.js.map",
+    "main.js": "/Lernfeld2/static/js/main.3ad06fe5.chunk.js",
+    "main.js.map": "/Lernfeld2/static/js/main.3ad06fe5.chunk.js.map",
     "runtime-main.js": "/Lernfeld2/static/js/runtime-main.d251ca13.js",
     "runtime-main.js.map": "/Lernfeld2/static/js/runtime-main.d251ca13.js.map",
     "static/css/2.a7aac2fb.chunk.css": "/Lernfeld2/static/css/2.a7aac2fb.chunk.css",
@@ -25,6 +25,6 @@
     "static/css/2.a7aac2fb.chunk.css",
     "static/js/2.83a4fbd2.chunk.js",
     "static/css/main.44554a27.chunk.css",
-    "static/js/main.d549712a.chunk.js"
+    "static/js/main.3ad06fe5.chunk.js"
   ]
 }
