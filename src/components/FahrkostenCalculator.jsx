@@ -83,9 +83,9 @@ export const FahrkostenCalculator = () => {
     // Erstellung eines Strings für die Kosten pro Minute für jeden Scooter
     const displayCostPerMinute = (scooter) => {
 
-        if (scooter === "Scooter1") return `${SCOOTER_1_COST_PER_MINUTE.toFixed(2)} €`
-        if (scooter === "Scooter2") return `${SCOOTER_2_COST_PER_MINUTE.toFixed(2)} €`
-        if (scooter === "Scooter3") return `${SCOOTER_3_COST_PER_MINUTE.toFixed(2)} €`
+        if (scooter === Scooter1) return `${SCOOTER_1_COST_PER_MINUTE.toFixed(2)} €`
+        if (scooter === Scooter2) return `${SCOOTER_2_COST_PER_MINUTE.toFixed(2)} €`
+        if (scooter === Scooter3) return `${SCOOTER_3_COST_PER_MINUTE.toFixed(2)} €`
 
         return ""
     }
