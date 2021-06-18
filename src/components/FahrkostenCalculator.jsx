@@ -3,15 +3,19 @@ import { Button } from "primereact/button";
 import { Dialog } from "primereact/dialog";
 import { RadioButton } from 'primereact/radiobutton';
 import { Card } from 'primereact/card';
-import Scooter1 from '../images/scooter1.jpg'
-import Scooter2 from '../images/shopping.png'
-import Scooter3 from '../images/Okai-electric-scooter-es400b-menu_1600x.png'
+import Scooter1_IMG from '../images/scooter1.jpg'
+import Scooter2_IMG from '../images/shopping.png'
+import Scooter3_IMG from '../images/Okai-electric-scooter-es400b-menu_1600x.png'
 
 export const FahrkostenCalculator = () => {
 
     // variablen (REACT) -> "Getter" und Setter
     const [scooterSelected, setScooterSelected] = React.useState("");
     const [tmpScooterSelected, setTmpScooterSelected] = React.useState("");
+
+    const Scooter1 = "Skipper";
+    const Scooter2 = "Private";
+    const Scooter3 = "Rico";
 
     const SCOOTER_1_COST_PER_MINUTE = 0.10;
     const SCOOTER_2_COST_PER_MINUTE = 0.20;
@@ -111,9 +115,9 @@ export const FahrkostenCalculator = () => {
         var price;
         var cost;
 
-        if (scooterSelected === "Scooter1") cost = SCOOTER_1_COST_PER_MINUTE;
-        if (scooterSelected === "Scooter2") cost = SCOOTER_2_COST_PER_MINUTE;
-        if (scooterSelected === "Scooter3") cost = SCOOTER_3_COST_PER_MINUTE;
+        if (scooterSelected === Scooter1) cost = SCOOTER_1_COST_PER_MINUTE;
+        if (scooterSelected === Scooter2) cost = SCOOTER_2_COST_PER_MINUTE;
+        if (scooterSelected === Scooter3) cost = SCOOTER_3_COST_PER_MINUTE;
 
         if (scooterSelected === "") return <div></div>
 
@@ -147,20 +151,22 @@ export const FahrkostenCalculator = () => {
     return(
         <div className="FahrkostenCalculatorContainer">
             <div>
+                {/* Scooter Selektion Knopf */}
                 <Button label="Select Scooter" className="button" onClick={() => { setShowModalScooterSelection(showModalScooterSelection => !showModalScooterSelection); setTmpScooterSelected(scooterSelected)}} disabled={startTime !== null}/>
+                {/* Selektionsmenü (nur sichtbar wenn Knopf gedrückt) */}
                 <Dialog header={header} visible={showModalScooterSelection} style={{width:"60rem"}} footer={footer} onHide={onHide} draggable={false} closable dismissableMask>
                     <div className="ScooterSelection">
-                        <Card className="ScooterSelectionCard" title={cardHeader(Scooter1)} footer={ <div className="centerItems">
-                            <label className="ScooterSelectionLabel" htmlFor="scooter1Selection">Scooter 1</label>
-                            <RadioButton value="Scooter1" inputId="scooter1Selection" onChange={(e) => setTmpScooterSelected(e.value)} checked={tmpScooterSelected==="Scooter1"} /> </div>}>
+                        <Card className="ScooterSelectionCard" title={cardHeader(Scooter1_IMG)} footer={ <div className="centerItems">
+                            <label className="ScooterSelectionLabel" htmlFor="scooter1Selection">{Scooter1}</label>
+                            <RadioButton value={Scooter1} inputId="scooter1Selection" onChange={(e) => setTmpScooterSelected(e.value)} checked={tmpScooterSelected===Scooter1} /> </div>}>
                         </Card>
-                        <Card className="ScooterSelectionCard" title={cardHeader(Scooter2)} footer={ <div className="centerItems">
-                            <label className="ScooterSelectionLabel" htmlFor="scooter2Selection">Scooter 2</label>
-                            <RadioButton value="Scooter2" inputId="scooter2Selection" onChange={(e) => setTmpScooterSelected(e.value)} checked={tmpScooterSelected==="Scooter2"} /> </div>}>
+                        <Card className="ScooterSelectionCard" title={cardHeader(Scooter2_IMG)} footer={ <div className="centerItems">
+                            <label className="ScooterSelectionLabel" htmlFor="scooter2Selection">{Scooter2}</label>
+                            <RadioButton value={Scooter2} inputId="scooter2Selection" onChange={(e) => setTmpScooterSelected(e.value)} checked={tmpScooterSelected===Scooter2} /> </div>}>
                         </Card>
-                        <Card className="ScooterSelectionCard" title={cardHeader(Scooter3)} footer={ <div className="centerItems">
-                            <label className="ScooterSelectionLabel" htmlFor="scooter3Selection">Scooter 3</label>
-                            <RadioButton value="Scooter3" inputId="scooter3Selection" onChange={(e) => setTmpScooterSelected(e.value)} checked={tmpScooterSelected==="Scooter3"} /> </div>}>
+                        <Card className="ScooterSelectionCard" title={cardHeader(Scooter3_IMG)} footer={ <div className="centerItems">
+                            <label className="ScooterSelectionLabel" htmlFor="scooter3Selection">{Scooter3}</label>
+                            <RadioButton value={Scooter3} inputId="scooter3Selection" onChange={(e) => setTmpScooterSelected(e.value)} checked={tmpScooterSelected===Scooter3} /> </div>}>
                         </Card>
                     </div>
                 </Dialog>

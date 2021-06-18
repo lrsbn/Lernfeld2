@@ -21,7 +21,7 @@ export const Home = () => {
                         Bei weiteren Fragen wenden Sie sich doch gerne an unser Team.<br/><br/>
                         Eine schöne Fahrt wünscht Ihnen,<br/>
                         IHRE SCOOTEQ.<br/><br/><br/>
-                        PS: Alle Bilder auf dieser Website sind weder von uns aufgenommen, noch besitzen wir die Rechte an diesem Bild.
+                        PS: Alle Bilder auf dieser Website sind weder von uns aufgenommen, noch besitzen wir die Rechte an diesen.
                         Es handelt sich bei diesem Projekt lediglich um ein Schulprojekt und es wird durch diese Website kein Geld verdient.
                     </p>
                 </div>
